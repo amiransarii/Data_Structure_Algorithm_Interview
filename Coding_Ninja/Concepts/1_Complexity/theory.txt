@@ -1,0 +1,75 @@
+1. for(int i = 0; i < n; i++){
+    for(; i < n; i++){
+        System.out.println(i);
+    }
+}
+time complexity is O(n) because inner loop using same variable so it doesnot effects the complexity
+
+2. What is the time complexity of following code?
+
+Explain
+while(n){ 
+  j=n; 
+  while(j>1){ 
+    j-=1; 
+  } 
+  n/=2; 
+}  
+
+we see that n i halved each time and j will run equal to n each tiem
+so j would run n+n/2+n/4+n/8 and so on
+the sum of this series is 2*n-1
+which has time complexity equal to n
+for proofs of this result you can see the article
+
+
+3. Problem statement
+What is the time complexity for the following function?
+
+
+Explain
+void fun2(int m, int n = 1)
+{
+  if (n <= 0)
+    return;
+  if (n > m)
+    return;
+  fun2(m, 2*n);
+ }  
+ the second if condition tells us that we should 
+ return from the function if n>m, so we need to find 
+ when does n becomes greater than m, when our operation is 2*m
+we see that in logm operations we can make n>m
+if the operation would have been 2*n the tc would have been logn
+but for this case it is O(logm) which is second option
+
+
+3. What is the time complexity of the following function?
+void sample(int n)  {
+    for (int p = n; p > 0; p=p/2) {
+        for (int q = 0; q < p; q++) {
+            print(p, “ ”, q);
+        }
+    }
+}
+This one is similar to one i explained earlier, the out loop runs for p 
+then for p/2 and the inner loop run equal to p times
+correct it for n
+so the loops will run for n+n/2+n/4...
+this is the gp formula i explained earlier which gives result of 2*n-1
+therefore the time complexity is O(n)
+
+4.What will be the Time Complexity of following code in terms of ‘n’ ’?
+for(int i = 0; i < n ; i++){
+    int k = n;
+    while(k > 0){
+           k/=2;   
+    }
+}
+Same code is Python is:
+The outer loop runs n time, and for each iteration of outer loop the 
+inner while loop runs until k becomes less than or euqal to 0. In each iteration
+ k is halved, so the number of iterations will be propotinal to log(k) with base 2
+
+now if i add for each i from 1 to n, it i will add up to nlogn
+to make a number n 0 by dividing another number k you will need log(n) with base k operations
