@@ -23,6 +23,7 @@ public class Test1MinCostPath_Memoization {
 	}
 
 
+	//Using Memoization Concepts 
 	public static int minCostPathM(int arr[][]){
 		int m = arr.length;
 		int n = arr[0].length;

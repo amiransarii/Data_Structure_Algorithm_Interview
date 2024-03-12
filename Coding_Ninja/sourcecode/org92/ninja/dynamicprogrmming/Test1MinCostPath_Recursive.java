@@ -1,7 +1,8 @@
 package org92.ninja.dynamicprogrmming;
 /*
  * Problem statement
-An integer matrix of size (M x N) has been given. Find out the minimum cost to reach from the cell (0, 0) to (M - 1, N - 1).
+An integer matrix of size (M x N) has been given. Find out the minimum cost 
+to reach from the cell (0, 0) to (M - 1, N - 1).
 
 From a cell (i, j), you can move in three directions:
 
@@ -49,28 +50,26 @@ Space Complexity : O(max(M, N))
 Where M and N are the rows rows and columns of the matrix.
 */
 public class Test1MinCostPath_Recursive {
-	private static int minCostPathHelper(int[][] input, int mRows, int nCols, int currRow,
-			int currCol) {
-			if (currRow >= mRows || currCol >= nCols) {
+	private static int minCostPathHelper(int[][] input, int mRows, int nCols, int currRow, int currCol) {
+		if (currRow >= mRows || currCol >= nCols) {
 			return Integer.MAX_VALUE;
-			}
-			if (currRow == (mRows - 1) && currCol == (nCols - 1)) {
+		}
+		if (currRow == (mRows - 1) && currCol == (nCols - 1)) {
 			return input[currRow][currCol];
-			}
-			int downCost = minCostPathHelper(input, mRows, nCols, (currRow + 1), currCol);
-			int diagonalCost = minCostPathHelper(input, mRows, nCols, (currRow + 1), (currCol +
-			1));
-			int leftCost = minCostPathHelper(input, mRows, nCols, currRow, (currCol + 1));
-			return input[currRow][currCol] + Math.min(diagonalCost, Math.min(downCost,
-			leftCost));
-			}
-			public static int minCostPath(int[][] input) {
-			int mRows = input.length;
-			if (mRows == 0) {
+		}
+		int downCost = minCostPathHelper(input, mRows, nCols, (currRow + 1), currCol);
+		int diagonalCost = minCostPathHelper(input, mRows, nCols, (currRow + 1), (currCol + 1));
+		int leftCost = minCostPathHelper(input, mRows, nCols, currRow, (currCol + 1));
+		return input[currRow][currCol] + Math.min(diagonalCost, Math.min(downCost, leftCost));
+	}
+
+	public static int minCostPath(int[][] input) {
+		int mRows = input.length;
+		if (mRows == 0) {
 			return Integer.MAX_VALUE;
-			}
-			int nCols = input[0].length;
-			return minCostPathHelper(input, mRows, nCols, 0, 0);
-			}
+		}
+		int nCols = input[0].length;
+		return minCostPathHelper(input, mRows, nCols, 0, 0);
+	}
 
 }

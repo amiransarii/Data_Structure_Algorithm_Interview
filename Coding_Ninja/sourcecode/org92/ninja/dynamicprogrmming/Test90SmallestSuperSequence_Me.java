@@ -11,12 +11,14 @@ public class Test90SmallestSuperSequence_Me {
             }
         }
         
-    	return SSShelper(str1, str2, 0, 0, dp); //SSS == smallestSuperSequence.//0, 0 means startIndex 0f str1 is 0, also, startIndex of str2 is 0
+    	return SSShelper(str1, str2, 0, 0, dp); 
+    	//SSS == smallestSuperSequence.//0, 0 means startIndex 0f str1 is 0, also, startIndex of str2 is 0
 
         
 }
 
-private static int SSShelper(String str1, String str2, int i, int j, int[][] dp) { //i and j represent startIndex of Strings str1 and str2 respectively
+private static int SSShelper(String str1, String str2, int i, int j, int[][] dp)
+{ //i and j represent startIndex of Strings str1 and str2 respectively
 
         //base case
         if (i == str1.length()){
