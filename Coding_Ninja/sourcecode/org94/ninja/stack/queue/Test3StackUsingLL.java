@@ -1,8 +1,8 @@
 package org94.ninja.stack.queue;
-
 import org.nininja.utils.Node;
 import org.nininja.utils.StackEmptyException;
 import org.nininja.utils.StackFullException;
+
 
 public class Test3StackUsingLL<T>  {
 	private Node<T> head;
